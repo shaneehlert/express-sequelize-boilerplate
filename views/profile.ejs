@@ -1,3 +1,8 @@
 <h2>Profile Page</h2>
 
-<a href="/">Home</a>
+<button onclick="window.location.href='/'">Home</button>
+<button onclick="window.location.href='/locations'">Saved Locations</button>
+
+<% if (status) { %>
+  <h3>Status: <%= status %></h3>
+<% } %>

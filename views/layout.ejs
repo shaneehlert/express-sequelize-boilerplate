@@ -3,14 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Authentication</title>
+    <title>Pokemon Go Server Status</title>
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   </head>
   <body>
     <div class="container">
-      <p><strong><%- JSON.stringify(currentUser) %></strong></p>
 
       <% if(alerts.error) { %>
         <% alerts.error.forEach(function(msg) { %>
@@ -24,7 +23,7 @@
         <% }); %>
       <% } %>
 
-      <h1>Authentication</h1>
+      <h1>Pokemon Go Server Status</h1>
       <%- body %>
     </div>
 

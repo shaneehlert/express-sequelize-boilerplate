@@ -6,6 +6,7 @@ var passport = require('./config/ppConfig');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var app = express();
+const isPokemonGoUp = require('is-pokemon-go-up')
 
 app.set('view engine', 'ejs');
 
@@ -35,8 +36,12 @@ app.get('/', function(req, res) {
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile');
+   isPokemonGoUp()
+     .then(function(response) {
+        res.render('profile', { status: response })
+     })
 });
+
 
 app.use('/auth', require('./controllers/auth'));
 
