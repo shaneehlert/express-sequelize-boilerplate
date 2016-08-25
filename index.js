@@ -68,22 +68,38 @@ app.get('/locations', isLoggedIn, function(req, res){
     if (err) throw err;
     goServer.GetLocation(function(err, location){
       goServer.playerInfo.locationName = location;
-    res.render('locations', { info: goServer.playerInfo })
+      console.log(goServer.playerInfo)
+      res.render('locations', { info: goServer.playerInfo })
     })
   });
 });
 
 app.post('/savedlocation', function(req,res){
+  console.log(req.body);
   db.locations.findOrCreate({
     where:{
       latitude: req.body.latitude,
-      longitude: req.body.longitude,
+      longitude: req.body.longitude
+    },
+    defaults: {
       apiendpoint: req.body.apiendpoint,
       inittime: req.body.inittime,
       locationname: req.body.locationname
     }
-  }).spread(function(location, updatedAt){
-    res.redirect('/profile');
+  }).spread(function(location, created){
+    if(created) {
+      res.redirect('/profile');
+    } else {
+      location.latitude = req.body.latitude;
+      location.longitude = req.body.longitude;
+      location.apiendpoint = req.body.apiendpoint;
+      location.inittime = req.body.inittime;
+      location.locationname = req.body.locationname;
+
+      location.save().then(function(location, created) {
+        res.redirect('/profile');
+      });
+    }
   });
 })
 
