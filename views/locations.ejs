@@ -1,1 +1,13 @@
-<h3>UNITED STATES</h3>
+<h3>Saved Locations</h3>
+<% if (info) { %>
+  <h3>info: <%= info.latitude +', '+ info.longitude +', ' + info.locationName%></h3>
+
+<form method="POST" action="/savedlocation">
+<input type="hidden" name="latitude" value="<%= info.latitude %>">
+  <input type="hidden" name="longitude" value="<%= info.longitude %>">
+  <input type="hidden" name="apiendpoint" value="<%= info.apiendpoint %>">
+  <input type="hidden" name="inittime" value="<%= info.inittime %>">
+  <input type="hidden" name="locationname" value="<%= info.locationname %>">
+  <input type="submit">
+<% } %>
+</form>

@@ -1,0 +1,62 @@
+h3 {
+  text-align: center;
+  margin-top: 75px;
+  color: blue;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 75px;
+  color: blue;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 75px;
+  color: blue;
+}
+
+div {
+  margin-left: 35%;
+}
+
+.profiles {
+  margin-right: 50px;
+  margin-left: 200px;
+  background-color: yellow;
+  color: green;
+}
+
+body {
+  background-color: green;
+  text-decoration: 20px;
+}
+
+button {
+  margin-top: 75px;
+}
+
+.form-group {
+  margin-left: 10%;
+}
+
+.btn-primary {
+  margin-left: 40%;
+  color: black;
+}
+
+input[type=submit] {
+    width: 20em;  height: 2em;
+    margin-left: 13%;
+    background-color: steelblue;
+}
+
+.new {
+  background-color: yellow;
+  color: green;
+}
+
+form {
+  margin-top: 75px;
+  margin-left: 30%;
+}

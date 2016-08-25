@@ -1,7 +1,14 @@
 <h2>Profile Page</h2>
 
-<button onclick="window.location.href='/'">Home</button>
-<button onclick="window.location.href='/locations'">Saved Locations</button>
+<button class="profiles" onclick="window.location.href='/'">Home</button>
+<button class="profiles" onclick="window.location.href='/locations'">Saved Locations</button>
+<button class="profiles" onclick="window.location.href='/profile'">Refresh Status</button>
+
+
+<form method="GET" action="/locations"> 
+  <input type="search" name="city">
+  <input type="submit">
+</form>
 
 <% if (status) { %>
   <h3>Status: <%= status %></h3>
