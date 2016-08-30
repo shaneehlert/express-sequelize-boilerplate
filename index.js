@@ -49,8 +49,6 @@ app.get('/profile', isLoggedIn, function(req, res) {
      })
 });
 
-console.log(process.env.PGO_USERNAME1, process.env.PGO_PASSWORD1)
-
 app.get('/locations', isLoggedIn, function(req, res){
   var goServer = new Pokeio.Pokeio();
 
@@ -65,8 +63,10 @@ app.get('/locations', isLoggedIn, function(req, res){
   var goPassword = process.env.PGO_PASSWORD1
 
   goServer.init(goUser, goPassword, city, "google", function(err){
+    console.log('clearing');
     if (err) throw err;
     goServer.GetLocation(function(err, location){
+      console.log('clears')
       goServer.playerInfo.locationName = location;
       console.log(goServer.playerInfo)
       res.render('locations', { info: goServer.playerInfo })
